@@ -1,0 +1,1867 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  PBL ConsultING - Single-File-Version (Snapshot 16.04.2026)
+  ============================================================
+  Diese Datei enthaelt HTML, CSS und JavaScript in einer Datei.
+  Gedacht als Archiv- und Vorschau-Version.
+
+  Fuer den Live-Betrieb bei IONOS: die Version mit getrennten
+  Dateien verwenden (index.html / style.css / script.js).
+
+  Externe/lokale Abhaengigkeiten:
+    - Google Fonts (fonts.googleapis.com)  -> DSGVO-kritisch
+    - Unsplash-Bilder (images.unsplash.com) -> extern
+    - Eigene Bilder aus Ordner images/:
+        images/werkzeuge-tisch.jpg (Werkzeug-Tisch-Sektion)
+        images/img_2.png (Logo)
+        images/img_12.png ... img_14.png (Zertifikats-Badges)
+        images/bulli_video.mp4 (Hero-Hintergrundvideo)
+  ============================================================
+-->
+<html lang="de">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>PBL ConsultING – Ingenieurbüro für Hauskaufberatung, Bauschadenbewertung, BIM & Gebäudezertifizierung</title>
+<meta name="description" content="PBL ConsultING – Planen. Bauen. Leben. Ihr unabhängiges Ingenieurbüro für Hauskaufberatung, Bauschadenbewertung, BIM-Architekturplanung und Gebäudezertifizierung. Fundierte Expertise – persönlich und präzise."/>
+<meta name="keywords" content="Sachverständigenbüro, Hauskaufberatung, Bauschadenbewertung, BIM Architekturplanung, Gebäudezertifizierung, Ingenieurbüro, Bauberatung, PBL ConsultING, DEKRA zertifiziert"/>
+<meta name="robots" content="index, follow"/>
+<meta property="og:title" content="PBL ConsultING – Planen. Bauen. Leben."/>
+<meta property="og:description" content="Ihr unabhängiges Ingenieurbüro für technische Immobilienberatung und Architekturplanung."/>
+<meta property="og:type" content="website"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet"/>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --anthracite: #1c2128;
+    --anthracite-light: #2d3748;
+    --dark-gray: #4a5568;
+    --mid-gray: #718096;
+    --light-gray: #e2e8f0;
+    --off-white: #f7f8fa;
+    --white: #ffffff;
+    --gold: #c8a96e;
+    --gold-light: #e2c898;
+    --gold-pale: #f5edd8;
+    --petrol: #2b6cb0;
+    --petrol-light: #3182ce;
+    --petrol-pale: #ebf4ff;
+    --font-display: 'DM Serif Display', Georgia, serif;
+    --font-body: 'DM Sans', system-ui, sans-serif;
+    --font-accent: 'Bebas Neue', sans-serif;
+    --transition: 0.35s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-body); background: var(--white); color: var(--anthracite); line-height: 1.65; overflow-x: hidden; }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--light-gray); }
+  ::-webkit-scrollbar-thumb { background: var(--gold); }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0.75rem 4rem;
+    background: rgba(28,33,40,0.92);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(200,169,110,0.15);
+    transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  nav.nav-light {
+    background: rgba(255,255,255,0.97);
+    border-bottom: 1px solid rgba(200,169,110,0.25);
+    box-shadow: 0 2px 20px rgba(28,33,40,0.08);
+  }
+  nav.nav-light .nav-links a { color: var(--anthracite); }
+  nav.nav-light .nav-links a:hover { color: var(--gold); }
+  nav.nav-light .nav-hamburger span { background: var(--anthracite); }
+  .nav-logo { display: flex; flex-direction: column; gap: 0; text-decoration: none; }
+  .nav-logo-main { font-family: var(--font-accent); font-size: 1.7rem; color: var(--gold); letter-spacing: 0.12em; line-height: 1; }
+  .nav-logo-sub { font-family: var(--font-body); font-size: 0.58rem; color: rgba(255,255,255,0.45); letter-spacing: 0.25em; text-transform: uppercase; }
+  .nav-links { display: flex; align-items: center; gap: 2.5rem; list-style: none; }
+  .nav-links a { font-size: 1rem; text-transform: uppercase; letter-spacing: 0.14em; color: rgba(255,255,255,0.65); text-decoration: none; transition: var(--transition); font-weight: 500; }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    padding: 0.6rem 1.4rem;
+    background: var(--gold);
+    color: var(--anthracite) !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.08em !important;
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+    transition: var(--transition) !important;
+  }
+  .nav-cta:hover { background: var(--gold-light) !important; color: var(--anthracite) !important; }
+  .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+  .nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--gold); transition: var(--transition); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr;
+    background: var(--anthracite);
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 70% 40%, rgba(200,169,110,0.08) 0%, transparent 60%),
+                radial-gradient(ellipse at 20% 80%, rgba(43,108,176,0.07) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .hero-grid-lines {
+    position: absolute; inset: 0; pointer-events: none; opacity: 0.04;
+    background-image:
+      linear-gradient(rgba(200,169,110,1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(200,169,110,1) 1px, transparent 1px);
+    background-size: 80px 80px;
+  }
+  .hero-left {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 10rem 4rem 6rem 4rem; position: relative; z-index: 2;
+  }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 0.75rem;
+    font-size: 0.68rem; letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 2rem; font-weight: 500;
+  }
+  .hero-eyebrow::before { content: ''; display: block; width: 32px; height: 1px; background: var(--gold); }
+  .hero-title {
+    font-family: var(--font-display); font-size: clamp(3rem, 5.5vw, 5.2rem);
+    color: var(--white); line-height: 1.08; margin-bottom: 1.5rem;
+    font-weight: 400;
+  }
+  .hero-title em { color: var(--gold); font-style: italic; }
+  .hero-sub {
+    font-size: 1rem; color: rgba(255,255,255,0.55); max-width: 38ch;
+    margin-bottom: 3rem; font-weight: 300; line-height: 1.75;
+  }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.9rem 2rem; background: var(--gold); color: var(--anthracite);
+    font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+    text-decoration: none; clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+    transition: var(--transition);
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .btn-secondary {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.9rem 2rem; border: 1px solid rgba(200,169,110,0.35);
+    color: rgba(255,255,255,0.7); font-size: 0.8rem; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;
+    transition: var(--transition);
+  }
+  .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+  .hero-stats {
+    display: flex; gap: 3rem; margin-top: 4rem;
+    padding-top: 3rem; border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .hero-stat-num { font-family: var(--font-accent); font-size: 2.5rem; color: var(--gold); letter-spacing: 0.05em; line-height: 1; }
+  .hero-stat-label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.18em; color: rgba(255,255,255,0.4); margin-top: 0.3rem; }
+
+  .hero-right {
+    position: relative; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .hero-visual {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(135deg, rgba(28,33,40,0.7) 0%, transparent 50%),
+      url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1200&q=80') center/cover no-repeat;
+    animation: heroZoom 12s ease-in-out infinite alternate;
+  }
+  .hero-visual-video {
+    position: absolute; inset: 0; overflow: hidden;
+  }
+  @keyframes heroZoom { from { transform: scale(1.02); } to { transform: scale(1.08); } }
+  .hero-badge {
+    position: absolute; bottom: 3rem; right: 3rem; z-index: 3;
+    background: rgba(200,169,110,0.95); backdrop-filter: blur(10px);
+    padding: 1.2rem 1.5rem; clip-path: polygon(0 0, 100% 0, 100% 80%, 90% 100%, 0 100%);
+  }
+  .hero-badge-main { font-family: var(--font-accent); font-size: 1.1rem; color: var(--anthracite); letter-spacing: 0.1em; }
+  .hero-badge-sub { font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.2em; color: rgba(28,33,40,0.65); margin-top: 0.2rem; }
+
+  /* ── SERVICES STRIP ── */
+  .services-strip {
+    background: var(--off-white);
+    border-top: 3px solid var(--gold);
+    padding: 0;
+    overflow: hidden;
+  }
+  .services-strip-inner {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+  }
+  .service-strip-item {
+    padding: 2.5rem 2rem;
+    border-right: 1px solid var(--light-gray);
+    cursor: pointer; transition: var(--transition);
+    position: relative; overflow: hidden;
+    text-decoration: none; display: block;
+  }
+  .service-strip-item::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+    background: var(--gold); transform: scaleX(0); transform-origin: left;
+    transition: var(--transition);
+  }
+  .service-strip-item:hover::after { transform: scaleX(1); }
+  .service-strip-item:hover { background: var(--white); }
+  .service-strip-item:last-child { border-right: none; }
+  .strip-icon { font-size: 1.5rem; margin-bottom: 0.8rem; display: block; }
+  .strip-num { font-family: var(--font-accent); font-size: 0.85rem; color: var(--gold); letter-spacing: 0.2em; margin-bottom: 0.4rem; }
+  .strip-title { font-size: 0.95rem; font-weight: 600; color: var(--anthracite); margin-bottom: 0.3rem; }
+  .strip-desc { font-size: 0.75rem; color: var(--mid-gray); line-height: 1.5; }
+
+  /* ── SECTIONS ── */
+  section { padding: 7rem 4rem; }
+  .container { max-width: 1200px; margin: 0 auto; }
+  .section-eyebrow {
+    font-size: 0.68rem; letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--gold); display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem; font-weight: 500;
+  }
+  .section-eyebrow::before { content: ''; display: block; width: 32px; height: 1px; background: var(--gold); }
+  .section-title { font-family: var(--font-display); font-size: clamp(2rem, 3.5vw, 3rem); color: var(--anthracite); line-height: 1.15; margin-bottom: 1.25rem; }
+  .section-title em { color: var(--petrol-light); font-style: italic; }
+  .section-body { font-size: 1rem; color: var(--mid-gray); max-width: 52ch; line-height: 1.8; }
+
+  /* ── ABOUT ── */
+  .about { background: var(--white); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+  .about-visual { position: relative; }
+  .about-img {
+    width: 100%; aspect-ratio: 4/5; object-fit: cover;
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 90% 100%, 0 100%);
+  }
+  .about-accent {
+    position: absolute; top: -1.5rem; right: -1.5rem;
+    width: 120px; height: 120px;
+    background: var(--gold-pale);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
+    z-index: -1;
+  }
+  .about-accent-2 {
+    position: absolute; bottom: 2rem; left: -2rem;
+    background: var(--anthracite);
+    color: var(--gold); padding: 1.5rem 2rem;
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 90% 100%, 0 100%);
+  }
+  .about-accent-2 .num { font-family: var(--font-accent); font-size: 2.2rem; line-height: 1; }
+  .about-accent-2 .lbl { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.18em; color: rgba(255,255,255,0.5); margin-top: 0.3rem; }
+  .about-features { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1rem; }
+  .about-feature { display: flex; align-items: flex-start; gap: 1rem; padding: 1rem; border-left: 2px solid var(--gold-pale); }
+  .about-feature:hover { border-left-color: var(--gold); background: var(--off-white); }
+  .feature-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 0.1rem; }
+  .feature-title { font-size: 0.88rem; font-weight: 600; color: var(--anthracite); }
+  .feature-desc { font-size: 0.78rem; color: var(--mid-gray); margin-top: 0.2rem; line-height: 1.5; }
+
+  /* ── ABOUT ICON GRID ── */
+  .about-icons-grid {
+    margin-top: 2.5rem;
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .about-icon-card {
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+    padding: 1.5rem 1rem;
+    border: 1px solid var(--light-gray);
+    background: var(--off-white);
+    border-radius: 4px;
+    transition: var(--transition);
+  }
+  .about-icon-card:hover { border-color: var(--gold); background: var(--white); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(28,33,40,0.07); }
+  .about-icon-circle {
+    width: 72px; height: 72px; border-radius: 50%;
+    background: var(--petrol); color: var(--white);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1rem; flex-shrink: 0;
+    transition: var(--transition);
+  }
+  .about-icon-card:hover .about-icon-circle { background: var(--gold); }
+  .about-icon-title {
+    font-size: 0.82rem; font-weight: 700; color: var(--anthracite);
+    text-transform: uppercase; letter-spacing: 0.06em;
+    margin-bottom: 0.5rem; line-height: 1.3;
+  }
+  .about-icon-desc { font-size: 0.75rem; color: var(--mid-gray); line-height: 1.55; }
+
+  /* ── PARTNER SLIDESHOW ── */
+  .partner-section { background: var(--white); padding: 5rem 4rem; overflow: hidden; }
+  .partner-section .section-eyebrow { margin-bottom: 1.25rem; }
+  .partner-track-outer {
+    position: relative; overflow: hidden; margin-top: 3rem;
+    mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  }
+  .partner-track {
+    display: flex; gap: 2.5rem; align-items: center;
+    animation: partnerScroll 30s linear infinite;
+    width: max-content;
+  }
+  .partner-track:hover { animation-play-state: paused; }
+  @keyframes partnerScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .partner-card {
+    flex-shrink: 0; width: 200px; height: 100px;
+    background: var(--off-white); border: 1px solid var(--light-gray);
+    border-radius: 4px; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 0.5rem;
+    padding: 1rem 1.5rem; text-decoration: none;
+    transition: var(--transition); cursor: pointer;
+  }
+  .partner-card:hover { border-color: var(--gold); background: var(--white); box-shadow: 0 8px 24px rgba(28,33,40,0.08); transform: translateY(-3px); }
+  .partner-card img { max-width: 140px; max-height: 55px; object-fit: contain; filter: grayscale(100%); opacity: 0.65; transition: var(--transition); }
+  .partner-card:hover img { filter: grayscale(0%); opacity: 1; }
+  .partner-card-name { font-size: 0.7rem; font-weight: 600; color: var(--mid-gray); text-align: center; letter-spacing: 0.08em; text-transform: uppercase; }
+
+  /* ── LEISTUNGEN MAIN ── */
+  .leistungen { background: var(--off-white); }
+  .leistungen-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 2rem; margin-top: 4rem;
+  }
+  .leistung-card {
+    background: var(--white);
+    border-radius: 12px;
+    position: relative; overflow: hidden; transition: var(--transition);
+    border: 1px solid var(--light-gray);
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+    box-shadow: 0 2px 12px rgba(28,33,40,0.06);
+    padding: 2rem 1.75rem 0 1.75rem;
+  }
+  .leistung-card:hover { border-color: var(--gold); transform: translateY(-5px); box-shadow: 0 20px 50px rgba(28,33,40,0.12); }
+  .leistung-img-wrap {
+    width: 140px; height: 140px; border-radius: 50%; overflow: hidden;
+    margin-bottom: 1.25rem; border: 3px solid var(--gold);
+    flex-shrink: 0;
+  }
+  .leistung-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+  .leistung-title { font-family: var(--font-display); font-size: 1.1rem; color: var(--anthracite); margin-bottom: 1rem; line-height: 1.2; font-weight: 700; }
+  .leistung-list { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1.5rem; text-align: left; width: 100%; flex-grow: 1; }
+  .leistung-list li {
+    font-size: 0.76rem; color: var(--dark-gray); display: flex; align-items: flex-start; gap: 0.6rem; line-height: 1.45;
+  }
+  .leistung-list li::before { content: '▸'; color: var(--gold); font-size: 0.65rem; flex-shrink: 0; margin-top: 0.15rem; }
+  .leistung-bottom {
+    width: calc(100% + 3.5rem); margin-left: -1.75rem; margin-right: -1.75rem;
+    position: relative; height: 140px; overflow: hidden; flex-shrink: 0;
+    border-radius: 0 0 12px 12px;
+  }
+  .leistung-bottom img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    filter: brightness(0.55);
+  }
+  .leistung-link {
+    position: absolute; bottom: 1rem; left: 50%; transform: translateX(-50%);
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 0.55rem 2rem;
+    background: rgba(28,33,40,0.82); color: var(--white);
+    font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.12em;
+    font-weight: 600; text-decoration: none;
+    border-radius: 50px;
+    border: 1px solid rgba(255,255,255,0.25);
+    backdrop-filter: blur(6px);
+    transition: var(--transition); white-space: nowrap;
+  }
+  .leistung-link:hover { background: var(--gold); color: var(--anthracite); border-color: var(--gold); }
+
+  /* ── PROCESS ── */
+  .process { background: var(--anthracite); color: var(--white); }
+  .process .section-title { color: var(--white); }
+  .process .section-body { color: rgba(255,255,255,0.5); }
+  .process-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; margin-top: 4rem; position: relative; }
+  .process-steps::before {
+    content: ''; position: absolute; top: 2rem; left: 10%; right: 10%;
+    height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .process-step { padding: 1.5rem; text-align: center; }
+  .process-step-num {
+    width: 4rem; height: 4rem; border-radius: 50%;
+    background: var(--anthracite); border: 2px solid var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-accent); font-size: 1.4rem; color: var(--gold);
+    margin: 0 auto 1.5rem;
+    position: relative; z-index: 1;
+    transition: var(--transition);
+  }
+  .process-step:hover .process-step-num { background: var(--gold); color: var(--anthracite); }
+  .process-step-title { font-size: 0.82rem; font-weight: 600; color: var(--white); margin-bottom: 0.5rem; }
+  .process-step-desc { font-size: 0.72rem; color: rgba(255,255,255,0.4); line-height: 1.6; }
+
+  /* ── TRUST ── */
+  .trust { background: var(--white); }
+  .trust-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 4rem; }
+  .trust-card {
+    padding: 2.5rem; background: var(--off-white);
+    border-top: 3px solid var(--light-gray); transition: var(--transition);
+    position: relative;
+  }
+  .trust-card:hover { border-top-color: var(--gold); background: var(--gold-pale); }
+  .trust-quote { font-size: 2.5rem; color: var(--gold); line-height: 1; margin-bottom: 1rem; font-family: Georgia; }
+  .trust-text { font-size: 0.88rem; color: var(--dark-gray); line-height: 1.75; margin-bottom: 1.5rem; font-style: italic; }
+  .trust-author { font-size: 0.75rem; font-weight: 600; color: var(--anthracite); text-transform: uppercase; letter-spacing: 0.1em; }
+  .trust-role { font-size: 0.68rem; color: var(--mid-gray); margin-top: 0.2rem; }
+
+  .trust-numbers { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; margin-top: 2px; background: var(--light-gray); }
+  .trust-num-card { background: var(--anthracite); padding: 2.5rem 2rem; text-align: center; }
+  .trust-num-val { font-family: var(--font-accent); font-size: 3rem; color: var(--gold); letter-spacing: 0.05em; }
+  .trust-num-label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.18em; color: rgba(255,255,255,0.4); margin-top: 0.4rem; }
+
+  /* ── CERTIFICATIONS ── */
+  .certs { background: var(--off-white); }
+  .certs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 3.5rem; }
+  .cert-card {
+    background: var(--white); padding: 2rem 1.5rem; text-align: center;
+    border-bottom: 2px solid var(--light-gray); transition: var(--transition);
+  }
+  .cert-card:hover { border-bottom-color: var(--petrol-light); transform: translateY(-3px); box-shadow: 0 12px 40px rgba(28,33,40,0.06); }
+  .cert-icon { font-size: 2rem; display: block; margin-bottom: 0.75rem; }
+  .cert-name { font-size: 0.82rem; font-weight: 600; color: var(--anthracite); margin-bottom: 0.3rem; }
+  .cert-desc { font-size: 0.7rem; color: var(--mid-gray); line-height: 1.5; }
+
+  /* ── CONTACT ── */
+  .contact { background: var(--anthracite); }
+  .contact .section-title { color: var(--white); }
+  .contact .section-body { color: rgba(255,255,255,0.5); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; margin-top: 4rem; }
+  .contact-form-group { margin-bottom: 1.5rem; }
+  .contact-form-group label {
+    display: block; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.2em;
+    color: rgba(255,255,255,0.4); margin-bottom: 0.6rem; font-weight: 600;
+  }
+  .contact-form-group input,
+  .contact-form-group select,
+  .contact-form-group textarea {
+    width: 100%; background: rgba(255,255,255,0.05); border: none;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    padding: 0.9rem 1rem 0.9rem 0; color: var(--white); font-family: var(--font-body);
+    font-size: 0.9rem; outline: none; transition: var(--transition);
+    -webkit-appearance: none;
+  }
+  .contact-form-group input::placeholder, .contact-form-group textarea::placeholder { color: rgba(255,255,255,0.2); }
+  .contact-form-group input:focus, .contact-form-group select:focus, .contact-form-group textarea:focus {
+    border-bottom-color: var(--gold); background: rgba(200,169,110,0.04);
+  }
+  .contact-form-group select { cursor: pointer; }
+  .contact-form-group select option { background: var(--anthracite-light); }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .contact-info { display: flex; flex-direction: column; gap: 2rem; }
+  .contact-info-item { display: flex; align-items: flex-start; gap: 1.25rem; }
+  .contact-info-icon {
+    width: 3rem; height: 3rem; background: rgba(200,169,110,0.1); border: 1px solid rgba(200,169,110,0.2);
+    display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0;
+  }
+  .contact-info-title { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.18em; color: var(--gold); margin-bottom: 0.3rem; }
+  .contact-info-val { font-size: 0.92rem; color: rgba(255,255,255,0.75); }
+  .contact-map {
+    margin-top: 2rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07);
+    padding: 1.5rem; display: flex; align-items: center; gap: 1rem;
+  }
+  .map-dot { width: 8px; height: 8px; background: var(--gold); border-radius: 50%; flex-shrink: 0; animation: pulse 2s ease-in-out infinite; }
+  @keyframes pulse { 0%,100% { box-shadow: 0 0 0 0 rgba(200,169,110,0.5); } 50% { box-shadow: 0 0 0 10px rgba(200,169,110,0); } }
+  .map-text { font-size: 0.8rem; color: rgba(255,255,255,0.4); line-height: 1.6; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #0f1318; color: rgba(255,255,255,0.35);
+    padding: 4rem 4rem 2rem;
+  }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 4rem; margin-bottom: 4rem; }
+  .footer-brand-name { font-family: var(--font-accent); font-size: 1.6rem; color: var(--gold); letter-spacing: 0.12em; }
+  .footer-brand-full { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.2em; color: rgba(255,255,255,0.25); margin-top: 0.3rem; margin-bottom: 1rem; }
+  .footer-desc { font-size: 0.78rem; line-height: 1.75; max-width: 28ch; }
+  .footer-col h4 { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.22em; color: var(--gold); margin-bottom: 1.25rem; font-weight: 600; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
+  .footer-col ul li a { font-size: 0.78rem; color: rgba(255,255,255,0.35); text-decoration: none; transition: var(--transition); }
+  .footer-col ul li a:hover { color: var(--gold); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.05); padding-top: 2rem;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+  }
+  .footer-bottom p { font-size: 0.72rem; }
+  .footer-legal { display: flex; gap: 2rem; }
+  .footer-legal a { font-size: 0.72rem; color: rgba(255,255,255,0.3); text-decoration: none; transition: var(--transition); }
+  .footer-legal a:hover { color: var(--gold); }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
+  /* ── MOBILE NAV ── */
+  .mobile-menu {
+    display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    background: var(--anthracite); z-index: 200; flex-direction: column;
+    align-items: center; justify-content: center; gap: 2.5rem;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { font-size: 1.8rem; font-family: var(--font-display); color: var(--white); text-decoration: none; }
+  .mobile-menu a:hover { color: var(--gold); }
+  .mobile-close { position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; cursor: pointer; color: var(--gold); font-size: 1.5rem; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    nav { padding: 1.25rem 2rem; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    section { padding: 5rem 2rem; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { height: 50vh; }
+    .hero-left { padding: 8rem 2rem 4rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .leistungen-grid { grid-template-columns: 1fr; }
+    .process-steps { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .process-steps::before { display: none; }
+    .trust-grid { grid-template-columns: 1fr; }
+    .trust-numbers { grid-template-columns: 1fr 1fr; }
+    .certs-grid { grid-template-columns: 1fr 1fr; }
+    .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .services-strip-inner { grid-template-columns: 1fr 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+    .footer { padding: 3rem 2rem 2rem; }
+  }
+  @media (max-width: 600px) {
+    .hero-title { font-size: 2.4rem; }
+    .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
+    .services-strip-inner { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .trust-numbers { grid-template-columns: 1fr 1fr; }
+    .certs-grid { grid-template-columns: 1fr 1fr; }
+    .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .footer-bottom { flex-direction: column; text-align: center; }
+  }
+
+  /* ── 3D CURSOR TILT EFFECT ── */
+  .tilt-target { transform-style: preserve-3d; transition: transform 0.1s ease-out; }
+  .cursor-glow {
+    pointer-events: none; position: fixed; z-index: 9999;
+    width: 28px; height: 28px; border-radius: 50%;
+    border: 2px solid rgba(200,169,110,0.7);
+    transform: translate(-50%, -50%);
+    transition: transform 0.08s ease, width 0.2s, height 0.2s, opacity 0.2s;
+    mix-blend-mode: difference;
+  }
+  .cursor-dot {
+    pointer-events: none; position: fixed; z-index: 10000;
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--gold);
+    transform: translate(-50%, -50%);
+    transition: transform 0.04s ease;
+  }
+  /* ===== BULLI EXPLORER ===== */
+  .bulli-section {
+    background: var(--off-white);
+    padding: 5rem 0 4rem;
+    overflow: hidden;
+  }
+  .bulli-stage {
+    max-width: 960px;
+    margin: 3rem auto 0;
+    padding: 0 2rem;
+    position: relative;
+  }
+  .bulli-wrap {
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+  }
+  .bulli-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 12px 32px rgba(0,0,0,0.15));
+  }
+
+  /* Door closed by default */
+  .cargo-interior { opacity: 0; transition: opacity 0.05s; }
+  .werkzeug { opacity: 0; transition: opacity 0.3s, transform 0.3s; transform-origin: center; }
+  .hover-hint { transition: opacity 0.4s; }
+
+  /* Door open state */
+  .bulli-wrap.door-open .sliding-door {
+    animation: slideOpen 0.45s ease forwards;
+  }
+  .bulli-wrap.door-open .cargo-interior { opacity: 1; transition: opacity 0.1s 0.3s; }
+  .bulli-wrap.door-open .werkzeug {
+    opacity: 1;
+    transition: opacity 0.35s 0.35s, transform 0.3s;
+  }
+  .bulli-wrap.door-open .hover-hint { opacity: 0; }
+
+  @keyframes slideOpen {
+    from { transform: translateX(0); }
+    to   { transform: translateX(175px); }
+  }
+
+  /* Werkzeug hover glow */
+  .werkzeug { cursor: pointer; }
+  .werkzeug:hover rect, .werkzeug:hover circle, .werkzeug:hover polygon {
+    filter: brightness(1.3);
+  }
+  .werkzeug.active-tool rect, .werkzeug.active-tool circle {
+    filter: brightness(1.5) drop-shadow(0 0 6px rgba(200,169,110,0.8));
+  }
+
+  /* Tooltip */
+  .bulli-tooltip {
+    position: absolute;
+    top: 20px; right: 10px;
+    background: var(--anthracite);
+    color: white;
+    padding: 1rem 1.25rem;
+    border-radius: 10px;
+    border-left: 3px solid var(--gold);
+    min-width: 180px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s;
+    z-index: 10;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  }
+  .bulli-tooltip.visible { opacity: 1; }
+  .bulli-tooltip-icon { font-size: 1.6rem; margin-bottom: 0.4rem; }
+  .bulli-tooltip-name { font-size: 0.85rem; font-weight: 700; color: var(--gold); margin-bottom: 0.2rem; }
+  .bulli-tooltip-desc { font-size: 0.75rem; color: rgba(255,255,255,0.7); margin-bottom: 0.5rem; }
+  .bulli-tooltip-hint { font-size: 0.65rem; color: rgba(255,255,255,0.35); text-transform: uppercase; letter-spacing: 0.1em; }
+
+  /* Pills */
+  .bulli-pills {
+    display: flex; flex-wrap: wrap; gap: 0.75rem;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+  .bulli-pill {
+    padding: 0.5rem 1.1rem;
+    border-radius: 50px;
+    background: white;
+    border: 1.5px solid var(--light-gray);
+    font-size: 0.78rem;
+    color: var(--dark-gray);
+    text-decoration: none;
+    transition: all 0.25s;
+    font-weight: 500;
+  }
+  .bulli-pill:hover, .bulli-pill.active {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--anthracite);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(200,169,110,0.35);
+  }
+
+  @media (max-width: 768px) {
+    .bulli-stage { padding: 0 1rem; }
+    .bulli-tooltip { top: 5px; right: 5px; min-width: 140px; padding: 0.75rem; }
+  }
+
+
+/* =============================================================
+   ZUSATZ-STYLES – Stand 16.04.2026
+   Werkzeug-Tisch + Leistungskarten-Highlight
+   (Reveal, Mobile-Menü, Cursor sind bereits oben definiert)
+   ============================================================= */
+
+/* ── WERKZEUG-TISCH / HOTSPOTS ────────────────────────────── */
+.tools-section {
+  padding: 6rem 0 5rem;
+  background: var(--off-white);
+  position: relative;
+}
+.tools-stage {
+  max-width: 1100px;
+  margin: 3.5rem auto 0;
+  padding: 0 2rem;
+}
+.tools-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(28,33,40,0.18),
+              0 0 0 1px rgba(200,169,110,0.12);
+}
+.tools-img {
+  display: block;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Hotspot */
+.tool-hotspot {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 54px; height: 54px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+  z-index: 3;
+}
+.tool-hotspot::before {
+  content: '';
+  position: absolute; inset: 0;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  opacity: 0.65;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 0 0 rgba(200,169,110,0.5);
+  animation: hotspot-pulse 2.4s ease-in-out infinite;
+}
+.tool-hotspot:hover::before,
+.tool-hotspot:focus-visible::before {
+  opacity: 1;
+  transform: scale(1.15);
+  border-width: 2.5px;
+  animation-play-state: paused;
+  box-shadow: 0 0 0 6px rgba(200,169,110,0.25);
+}
+.hotspot-dot {
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 2px 10px rgba(200,169,110,0.6);
+  transition: transform 0.25s ease;
+}
+.tool-hotspot:hover .hotspot-dot,
+.tool-hotspot:focus-visible .hotspot-dot {
+  transform: scale(1.35);
+}
+@keyframes hotspot-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(200,169,110,0.45); }
+  50%      { box-shadow: 0 0 0 8px rgba(200,169,110,0);    }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tool-hotspot::before { animation: none; }
+}
+
+/* Tooltip */
+.tools-tooltip {
+  position: absolute;
+  transform: translate(-50%, calc(-100% - 18px));
+  background: var(--anthracite);
+  color: var(--white);
+  padding: 0.8rem 1.1rem;
+  border-radius: 8px;
+  border-left: 3px solid var(--gold);
+  min-width: 180px;
+  box-shadow: 0 10px 30px rgba(28,33,40,0.3);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 5;
+}
+.tools-tooltip.is-visible { opacity: 1; }
+.tools-tooltip::after {
+  content: '';
+  position: absolute;
+  bottom: -6px; left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 12px; height: 12px;
+  background: var(--anthracite);
+  border-right: 3px solid var(--gold);
+  border-bottom: 3px solid var(--gold);
+}
+.tools-tooltip-name {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--gold);
+  line-height: 1.2;
+  margin-bottom: 0.15rem;
+}
+.tools-tooltip-desc {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.7);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Pills */
+.tools-pills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.7rem;
+  margin-top: 2.5rem;
+}
+.tool-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1.1rem;
+  background: var(--white);
+  border: 1px solid rgba(200,169,110,0.35);
+  border-radius: 40px;
+  font-size: 0.82rem;
+  color: var(--anthracite);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: all 0.25s ease;
+}
+.tool-pill:hover,
+.tool-pill.is-active {
+  background: var(--gold);
+  color: var(--anthracite);
+  border-color: var(--gold);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(200,169,110,0.35);
+}
+
+@media (max-width: 720px) {
+  .tools-section { padding: 4rem 0 3.5rem; }
+  .tools-stage { padding: 0 1rem; margin-top: 2.5rem; }
+  .tool-hotspot { width: 44px; height: 44px; }
+  .hotspot-dot { width: 10px; height: 10px; }
+  .tools-tooltip { min-width: 140px; padding: 0.6rem 0.85rem; }
+  .tools-tooltip-name { font-size: 0.88rem; }
+  .tools-tooltip-desc { font-size: 0.68rem; }
+  .tool-pill { font-size: 0.75rem; padding: 0.5rem 0.9rem; }
+}
+
+/* ── LEISTUNGSKARTEN-HIGHLIGHT ─────────────────────────────── */
+.leistung-card.is-highlight {
+  animation: card-highlight 1.6s ease-out;
+}
+@keyframes card-highlight {
+  0%   { box-shadow: 0 0 0 0 rgba(200,169,110,0); }
+  30%  { box-shadow: 0 0 0 6px rgba(200,169,110,0.45); }
+  100% { box-shadow: 0 0 0 0 rgba(200,169,110,0); }
+}
+
+</style>
+</head>
+<body>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="closeMobile()">✕</button>
+  <a href="#leistungen" onclick="closeMobile()">Leistungen</a>
+  <a href="#ueber-uns" onclick="closeMobile()">Über uns</a>
+  <a href="#prozess" onclick="closeMobile()">Arbeitsweise</a>
+  <a href="#kontakt" onclick="closeMobile()">Kontakt</a>
+</div>
+
+<!-- NAV -->
+<nav role="navigation" aria-label="Hauptnavigation">
+  <a class="nav-logo" href="#" aria-label="PBL ConsultING – Zur Startseite">
+    <img src="images/img_2.png" alt="PBL ConsultING Logo" style="height:220px; width:auto; display:block; position:relative; z-index:101; margin-top:-55px; margin-bottom:-55px;"/>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#leistungen">Leistungen</a></li>
+    <li><a href="#ueber-uns">Über uns</a></li>
+    <li><a href="#prozess">Arbeitsweise</a></li>
+    <li><a href="#kontakt" class="nav-cta">Beratung anfragen</a></li>
+  </ul>
+  <div class="nav-hamburger" onclick="openMobile()" aria-label="Menü öffnen" role="button" tabindex="0">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero" aria-label="Startbereich">
+  <div class="hero-grid-lines" aria-hidden="true"></div>
+  <div class="hero-left">
+    <span class="hero-eyebrow">Ingenieurbüro &amp; Sachverständige</span>
+    <h1 class="hero-title">
+      Präzision,<br/>die Ihr Projekt<br/><em>trägt.</em>
+    </h1>
+    <p class="hero-sub">
+      PBL ConsultING steht für fundierte Immobilienberatung, technische Analyse und zukunftsfähige Planung – unabhängig, kompetent und persönlich.
+    </p>
+    <div class="hero-actions">
+      <a href="#kontakt" class="btn-primary">Erstgespräch vereinbaren →</a>
+      <a href="#leistungen" class="btn-secondary">Leistungen entdecken</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num">15+</div>
+        <div class="hero-stat-label">Jahre Erfahrung</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">100+</div>
+        <div class="hero-stat-label">Begleitete Projekte</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">DEKRA</div>
+        <div class="hero-stat-label">Zertifiziert</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right" aria-hidden="true">
+    <div class="hero-visual-video">
+      <video autoplay muted loop playsinline
+        style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;">
+        <source src="images/bulli_video.mp4" type="video/mp4"/>
+      </video>
+      <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(28,33,40,0.65) 0%,rgba(28,33,40,0.2) 100%);z-index:1;"></div>
+    </div>
+    <div class="hero-badge" style="z-index:3;">
+      <div class="hero-badge-main">DEKRA · DGNB · VDI</div>
+      <div class="hero-badge-sub">Zertifizierte Expertise</div>
+    </div>
+    <div class="hero-logo-overlay" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2;opacity:0.18;pointer-events:none;">
+      <img src="images/img_2.png" alt="" style="width:260px;height:auto;filter:brightness(0) invert(1);"/>
+    </div>
+  </div>
+</section>
+
+
+<!-- ÜBER UNS -->
+<section class="about" id="ueber-uns" aria-labelledby="about-heading">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual reveal">
+        <div class="about-accent" aria-hidden="true"></div>
+        <img
+          class="about-img"
+          src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80&auto=format&fit=crop"
+          alt="Bauingenieur mit Bauplänen und Tablet bei der fachlichen Analyse auf der Baustelle"
+          width="600" height="750" loading="lazy"
+        />
+        <div class="about-accent-2" aria-hidden="true">
+          <div class="num">15+</div>
+          <div class="lbl">Jahre Expertise</div>
+        </div>
+      </div>
+      <div>
+        <span class="section-eyebrow">Über PBL ConsultING</span>
+        <h2 class="section-title reveal" id="about-heading">Unabhängig. Präzise. <em>Verlässlich.</em></h2>
+        <p class="section-body reveal">
+          PBL ConsultING – Planen, Bauen, Leben – ist Ihr unabhängiges Ingenieurbüro für alle Fragen rund um Immobilien, Baukonstruktion und technische Planung. Mit über 15 Jahren Erfahrung begleiten wir private Käufer, Investoren, Architekten und Unternehmen in jeder Phase ihres Projekts.
+        </p>
+        <div class="about-icons-grid">
+          <div class="about-icon-card reveal reveal-delay-1">
+            <div class="about-icon-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="32" height="32"><path d="M12 1a7 7 0 0 1 7 7c0 3-1.5 5-3 6.5S14 17 14 19v1a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-1c0-1.5-.5-2.5-1-3.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 8a3 3 0 0 1 6 0c0 2-1 3-2 4" stroke-linecap="round"/><circle cx="9" cy="19" r="1.5" fill="currentColor" stroke="none"/></svg>
+            </div>
+            <div class="about-icon-title">Wir hören zu!</div>
+            <div class="about-icon-desc">Ihr Anliegen steht im Mittelpunkt. Wir nehmen uns Zeit, Ihre Situation zu verstehen – und entwickeln daraus eine passgenaue Lösung.</div>
+          </div>
+          <div class="about-icon-card reveal reveal-delay-2">
+            <div class="about-icon-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="32" height="32"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35" stroke-linecap="round"/></svg>
+            </div>
+            <div class="about-icon-title">Zertifizierungskompetenz</div>
+            <div class="about-icon-desc">Wir schaffen Klarheit darüber, welche Nachhaltigkeits- und Zertifizierungskriterien für Ihr Bauprojekt wirklich relevant sind – und wie Sie sie wirtschaftlich umsetzen.</div>
+          </div>
+          <div class="about-icon-card reveal reveal-delay-3">
+            <div class="about-icon-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="32" height="32"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <div class="about-icon-title">Expertenwissen</div>
+            <div class="about-icon-desc">Wir verfolgen einen interdisziplinären Beratungsansatz mit Expertise aus Energieberatung, Bauphysik, Tragwerksplanung und technischer Gebäudeausstattung.</div>
+          </div>
+          <div class="about-icon-card reveal reveal-delay-1">
+            <div class="about-icon-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="32" height="32"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4" stroke-linecap="round"/><path d="M6 8h.01M6 12h12M6 8h12" stroke-linecap="round"/></svg>
+            </div>
+            <div class="about-icon-title">Digitale Projektbegleitung</div>
+            <div class="about-icon-desc">Als modernes Ingenieurbüro setzen wir konsequent auf digitale Prozesse – das spart Zeit, reduziert Fehler und leistet zugleich einen Beitrag zum Umweltschutz.</div>
+          </div>
+          <div class="about-icon-card reveal reveal-delay-2">
+            <div class="about-icon-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="32" height="32"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18" stroke-linecap="round"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01" stroke-linecap="round" stroke-width="2.5"/></svg>
+            </div>
+            <div class="about-icon-title">Langjährige Berufserfahrung</div>
+            <div class="about-icon-desc">Über 15 Jahre aktive Tätigkeit auf nationalen und internationalen Baustellen – diese Praxistiefe macht den Unterschied bei komplexen Projekten.</div>
+          </div>
+          <div class="about-icon-card reveal reveal-delay-3">
+            <div class="about-icon-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="32" height="32"><path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5" stroke-linecap="round"/></svg>
+            </div>
+            <div class="about-icon-title">Fort- & Ausbildung</div>
+            <div class="about-icon-desc">Wir sprechen eine Sprache auf dem Bau – und bilden uns und unsere Kollegen fortlaufend weiter. So verbinden wir Theorie und Praxis und bleiben fachlich stets auf der Höhe.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WERKZEUG-TISCH / INTERAKTIV -->
+<section class="tools-section" id="tools-explorer" aria-label="Werkzeug-Explorer">
+  <div class="container">
+    <span class="section-eyebrow">Unsere Arbeitsmittel</span>
+    <h2 class="section-title reveal">Werkzeuge, die <em>unsere Arbeit tragen</em></h2>
+    <p class="section-body reveal">Ein Blick auf unseren Arbeitstisch – fahren Sie mit der Maus über die Geräte und klicken Sie, um zur passenden Leistung zu gelangen.</p>
+  </div>
+
+  <div class="tools-stage">
+    <div class="tools-wrap" id="toolsWrap">
+      <img
+        src="images/werkzeuge-tisch.jpg"
+        alt="Arbeitstisch mit Feuchtemessgerät, Wärmebildkamera, Laser-Entfernungsmesser, Baupläne, DGNB-Mappe und iPad mit 3D-Gebäudemodell"
+        class="tools-img"
+        loading="lazy"/>
+
+      <!-- HOTSPOTS – prozentuale Positionen, responsive -->
+      <!-- 1: Feuchtemessgerät (links oben) – Bauschadenbewertung -->
+      <a href="#bauschaden"
+         class="tool-hotspot"
+         style="top:28%; left:14%;"
+         data-leistung="bauschaden"
+         data-name="Feuchtemessgerät"
+         data-desc="Bauschadenbewertung"
+         aria-label="Feuchtemessgerät – zur Bauschadenbewertung">
+        <span class="hotspot-dot" aria-hidden="true"></span>
+      </a>
+
+      <!-- 2: Wärmebildkamera (Mitte oben) – Energieberatung iSFP -->
+      <a href="#energieberatung"
+         class="tool-hotspot"
+         style="top:26%; left:32%;"
+         data-leistung="energieberatung"
+         data-name="Wärmebildkamera"
+         data-desc="Energieberatung iSFP"
+         aria-label="Wärmebildkamera – zur Energieberatung iSFP">
+        <span class="hotspot-dot" aria-hidden="true"></span>
+      </a>
+
+      <!-- 3: Laser-Entfernungsmesser (rechts von Kamera) – Hauskaufberatung -->
+      <a href="#hauskauf"
+         class="tool-hotspot"
+         style="top:34%; left:52%;"
+         data-leistung="hauskauf"
+         data-name="Laser-Entfernungsmesser"
+         data-desc="Hauskaufberatung"
+         aria-label="Laser-Entfernungsmesser – zur Hauskaufberatung">
+        <span class="hotspot-dot" aria-hidden="true"></span>
+      </a>
+
+      <!-- 4: Baupläne / Klemmbrett (rechts oben) – Planungsmanagement -->
+      <a href="#planung"
+         class="tool-hotspot"
+         style="top:20%; left:72%;"
+         data-leistung="planung"
+         data-name="Baupläne"
+         data-desc="Planungsmanagement"
+         aria-label="Baupläne – zum Planungsmanagement">
+        <span class="hotspot-dot" aria-hidden="true"></span>
+      </a>
+
+      <!-- 5: DGNB-Mappe (rechts oben, braun) – Gebäudezertifizierung -->
+      <a href="#zertifizierung"
+         class="tool-hotspot"
+         style="top:28%; left:87%;"
+         data-leistung="zertifizierung"
+         data-name="DGNB-Mappe"
+         data-desc="Gebäudezertifizierung"
+         aria-label="DGNB-Mappe – zur Gebäudezertifizierung">
+        <span class="hotspot-dot" aria-hidden="true"></span>
+      </a>
+
+      <!-- 6: iPad mit 3D-Modell (Mitte) – BIM Planung -->
+      <a href="#bim"
+         class="tool-hotspot"
+         style="top:55%; left:48%;"
+         data-leistung="bim"
+         data-name="iPad mit 3D-Modell"
+         data-desc="BIM Planung"
+         aria-label="iPad mit BIM-Modell – zur BIM Planung">
+        <span class="hotspot-dot" aria-hidden="true"></span>
+      </a>
+
+      <!-- TOOLTIP (folgt dem aktiven Hotspot) -->
+      <div class="tools-tooltip" id="toolsTooltip" aria-hidden="true">
+        <div class="tools-tooltip-name" id="toolsTooltipName">Werkzeug</div>
+        <div class="tools-tooltip-desc" id="toolsTooltipDesc">Leistung</div>
+      </div>
+    </div>
+
+    <!-- Leistungs-Pills (Fallback für Mobile + schnelle Navigation) -->
+    <div class="tools-pills" id="toolsPills">
+      <a href="#bauschaden" class="tool-pill" data-leistung="bauschaden">🔬 Bauschadenbewertung</a>
+      <a href="#energieberatung" class="tool-pill" data-leistung="energieberatung">📷 Energieberatung iSFP</a>
+      <a href="#planung" class="tool-pill" data-leistung="planung">📐 Planungsmanagement</a>
+      <a href="#hauskauf" class="tool-pill" data-leistung="hauskauf">🏠 Hauskaufberatung</a>
+      <a href="#zertifizierung" class="tool-pill" data-leistung="zertifizierung">🏅 Gebäudezertifizierung</a>
+      <a href="#bim" class="tool-pill" data-leistung="bim">💻 BIM Planung</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- LEISTUNGEN -->
+<section class="leistungen" id="leistungen" aria-labelledby="leistungen-heading">
+  <div class="container">
+    <span class="section-eyebrow">Unsere Kernleistungen</span>
+    <h2 class="section-title reveal" id="leistungen-heading">Was wir für Sie <em>leisten</em></h2>
+    <p class="section-body reveal">Sechs Fachbereiche. Ein Ziel: Ihr Vorhaben auf solidem Fundament.</p>
+  </div>
+  <div class="container">
+    <div class="leistungen-grid">
+
+      <!-- Planungsmanagement -->
+      <div class="leistung-card reveal" id="planung" data-num="01">
+        <div class="leistung-img-wrap">
+          <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&q=80&auto=format&fit=crop" alt="Architekten bei der Bauplanung"/>
+        </div>
+        <h3 class="leistung-title">Planungsmanagement</h3>
+        <ul class="leistung-list" aria-label="Leistungsumfang Planungsmanagement">
+          <li>Erstellung von Bauanträgen, Werbeanträgen und Regalbauanträgen</li>
+          <li>Projektentwicklung und Masterplanung</li>
+          <li>Beratung und Planprüfung in allen Leistungsphasen nach HOAI</li>
+          <li>Terminplanung, Kostencontrolling und Qualitätssicherung</li>
+        </ul>
+        <div class="leistung-bottom">
+          <img src="https://images.unsplash.com/photo-1542621334-a254cf47733d?w=600&q=80&auto=format&fit=crop" alt="Ingenieur mit Bauplänen und technischen Zeichnungen"/>
+          <a class="leistung-link" href="#kontakt" aria-label="Planungsmanagement anfragen">Erstberatung</a>
+        </div>
+      </div>
+
+      <!-- Gebäudezertifizierung -->
+      <div class="leistung-card reveal reveal-delay-1" id="zertifizierung" data-num="02">
+        <div class="leistung-img-wrap">
+          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80&auto=format&fit=crop" alt="Modernes, nachhaltiges Bürogebäude – DGNB-Zertifizierung"/>
+        </div>
+        <h3 class="leistung-title">Gebäudezertifizierung</h3>
+        <ul class="leistung-list" aria-label="Leistungsumfang Gebäudezertifizierung">
+          <li>Erstellung von Nachhaltigkeitsstrategien und Prechecks</li>
+          <li>Beratung und Zertifizierung bei nachhaltigen und zirkulären Neubauten und Sanierungen</li>
+          <li>Zertifizierung nach DGNB + QNG</li>
+          <li>Energieausweis und GEG-Nachweis</li>
+        </ul>
+        <div class="leistung-bottom">
+          <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=600&q=80&auto=format&fit=crop" alt="Nachhaltige Architektur mit begrünter Fassade"/>
+          <a class="leistung-link" href="#kontakt" aria-label="Gebäudezertifizierung anfragen">Erstberatung</a>
+        </div>
+      </div>
+
+      <!-- Energieberatung iSFP -->
+      <div class="leistung-card reveal reveal-delay-2" id="energieberatung" data-num="03">
+        <div class="leistung-img-wrap">
+          <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&q=80&auto=format&fit=crop" alt="Energieberatung – Photovoltaik und energieeffiziente Gebäudetechnik"/>
+        </div>
+        <h3 class="leistung-title">Energieberatung iSFP</h3>
+        <ul class="leistung-list" aria-label="Leistungsumfang Energieberatung iSFP">
+          <li>Bestandsanalyse &amp; Energieberatung iSFP</li>
+          <li>Baubegleitung bei der energetischen Sanierung</li>
+          <li>Beratung bei Neubauvorhaben und Immobilienkauf</li>
+          <li>Fördermittelberatung KfW und BAFA</li>
+        </ul>
+        <div class="leistung-bottom">
+          <img src="https://images.unsplash.com/photo-1635348729626-cdf2b7a2f4d5?w=600&q=80&auto=format&fit=crop" alt="Dämmung und energetische Gebäudesanierung"/>
+          <a class="leistung-link" href="#kontakt" aria-label="Energieberatung anfragen">Erstberatung</a>
+        </div>
+      </div>
+
+      <!-- Hauskaufberatung -->
+      <div class="leistung-card reveal" id="hauskauf" data-num="04">
+        <div class="leistung-img-wrap">
+          <img src="https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?w=600&q=80&auto=format&fit=crop" alt="Sachverständiger begutachtet Einfamilienhaus vor dem Kauf"/>
+        </div>
+        <h3 class="leistung-title">Hauskaufberatung</h3>
+        <ul class="leistung-list" aria-label="Leistungsumfang Hauskaufberatung">
+          <li>Begutachtung vor Ort durch erfahrene Sachverständige</li>
+          <li>Bewertung von Bausubstanz, Dach, Keller und Technik</li>
+          <li>Schriftliches Gutachten mit Kostenprognose</li>
+          <li>Sanierungsbedarf und Risikoeinschätzung</li>
+          <li>Unabhängige Kaufpreisbewertung</li>
+        </ul>
+        <div class="leistung-bottom">
+          <img src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=600&q=80&auto=format&fit=crop" alt="Hauskaufberatung mit Checkliste vor Ort"/>
+          <a class="leistung-link" href="#kontakt" aria-label="Hauskaufberatung anfragen">Erstberatung</a>
+        </div>
+      </div>
+
+      <!-- Bauschadenbewertung -->
+      <div class="leistung-card reveal reveal-delay-1" id="bauschaden" data-num="05">
+        <div class="leistung-img-wrap">
+          <img src="https://images.unsplash.com/photo-1590725121839-89db1d0fcac0?w=600&q=80&auto=format&fit=crop" alt="Rissschaden im Mauerwerk – Bauschadenanalyse"/>
+        </div>
+        <h3 class="leistung-title">Bauschadenbewertung</h3>
+        <ul class="leistung-list" aria-label="Leistungsumfang Bauschadenbewertung">
+          <li>Analyse von Feuchte-, Riss- und Schimmelschäden</li>
+          <li>Dokumentation mit Fotobericht und Messwerten</li>
+          <li>Schadensursachen und Haftungsfragen klären</li>
+          <li>Schriftliches Gutachten für Gericht oder Versicherung</li>
+          <li>Sanierungsempfehlungen mit Kostenschätzung</li>
+        </ul>
+        <div class="leistung-bottom">
+          <img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=600&q=80&auto=format&fit=crop" alt="Feuchte- und Schadensmessung mit Messgerät"/>
+          <a class="leistung-link" href="#kontakt" aria-label="Bauschadenbewertung anfragen">Erstberatung</a>
+        </div>
+      </div>
+
+      <!-- BIM Planung -->
+      <div class="leistung-card reveal reveal-delay-2" id="bim" data-num="06">
+        <div class="leistung-img-wrap">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80&auto=format&fit=crop" alt="BIM Planung – 3D-Modell eines Gebäudes"/>
+        </div>
+        <h3 class="leistung-title">BIM Planung</h3>
+        <ul class="leistung-list" aria-label="Leistungsumfang BIM Planung">
+          <li>3D-Modellierung und digitale Bauwerksdokumentation</li>
+          <li>Kollisionsprüfung und Fachplanerkoordination</li>
+          <li>Visualisierung und Variantenentwicklung</li>
+          <li>BIM-Management nach VDI 2552</li>
+          <li>Integration in Bestandsprojekte und Neubauten</li>
+        </ul>
+        <div class="leistung-bottom">
+          <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80&auto=format&fit=crop" alt="Digitale BIM-Planung am Arbeitsplatz"/>
+          <a class="leistung-link" href="#kontakt" aria-label="BIM Planung anfragen">Erstberatung</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROZESS -->
+<section class="process" id="prozess" aria-labelledby="prozess-heading">
+  <div class="container">
+    <span class="section-eyebrow">Unsere Arbeitsweise</span>
+    <h2 class="section-title reveal" id="prozess-heading">Strukturiert. Transparent. Ergebnisorientiert.</h2>
+    <p class="section-body reveal">Jedes Projekt folgt einem klaren Ablauf – damit Sie immer wissen, wo Ihr Vorhaben steht.</p>
+    <div class="process-steps" role="list">
+      <div class="process-step reveal" role="listitem">
+        <div class="process-step-num" aria-hidden="true">1</div>
+        <div class="process-step-title">Erstgespräch</div>
+        <div class="process-step-desc">Unverbindliches Erstgespräch zur Zielklärung und Vorgehensabstimmung</div>
+      </div>
+      <div class="process-step reveal reveal-delay-1" role="listitem">
+        <div class="process-step-num" aria-hidden="true">2</div>
+        <div class="process-step-title">Bestandsaufnahme</div>
+        <div class="process-step-desc">Vor-Ort-Begehung, Messtechnik und Dokumentation</div>
+      </div>
+      <div class="process-step reveal reveal-delay-2" role="listitem">
+        <div class="process-step-num" aria-hidden="true">3</div>
+        <div class="process-step-title">Analyse &amp; Bewertung</div>
+        <div class="process-step-desc">Fachliche Auswertung nach aktuellen Normen und Standards</div>
+      </div>
+      <div class="process-step reveal reveal-delay-3" role="listitem">
+        <div class="process-step-num" aria-hidden="true">4</div>
+        <div class="process-step-title">Gutachten / Planung</div>
+        <div class="process-step-desc">Klares, gerichtsfestes Dokument oder digitales Planungsmodell</div>
+      </div>
+      <div class="process-step reveal reveal-delay-4" role="listitem">
+        <div class="process-step-num" aria-hidden="true">5</div>
+        <div class="process-step-title">Begleitung</div>
+        <div class="process-step-desc">Auf Wunsch Baubegleitung, Verhandlungsunterstützung und Nachbetreuung</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST / KUNDENGRUPPEN -->
+<section class="trust" id="referenzen" aria-labelledby="trust-heading">
+  <div class="container">
+    <span class="section-eyebrow">Kundengruppen &amp; Einsatzbereiche</span>
+    <h2 class="section-title reveal" id="trust-heading">Wen wir <em>begleiten</em></h2>
+    <p class="section-body reveal">Unsere Leistungen richten sich an private Bauherren ebenso wie an professionelle Marktteilnehmer – mit jeweils angepasster Beratungstiefe.</p>
+    <div class="trust-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+
+      <!-- 1: Privatkunden -->
+      <div class="trust-card reveal">
+        <div class="trust-quote" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="32" height="32" style="display:block;">
+            <path d="M3 11l9-8 9 8v10a1 1 0 0 1-1 1h-5v-7h-6v7H4a1 1 0 0 1-1-1V11z" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <p class="trust-text" style="font-style:normal;">Käufer und Eigentümer von Eigenheimen und Eigentumswohnungen – begleitet bei Hauskauf, energetischer Sanierung und Bauschadensklärung.</p>
+        <div class="trust-author">Privatkunden</div>
+        <div class="trust-role">Hauskauf · Sanierung · Gutachten</div>
+      </div>
+
+      <!-- 2: Bauträger & Investoren -->
+      <div class="trust-card reveal reveal-delay-1">
+        <div class="trust-quote" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="32" height="32" style="display:block;">
+            <rect x="3" y="8" width="7" height="13" rx="1"/>
+            <rect x="14" y="3" width="7" height="18" rx="1"/>
+            <path d="M6 12h1M6 15h1M6 18h1M17 7h1M17 11h1M17 15h1M17 18h1" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <p class="trust-text" style="font-style:normal;">Projektentwickler und Investoren im Wohn- und Gewerbebau – unterstützt durch Planungsmanagement, BIM-Koordination und Nachhaltigkeitszertifizierung.</p>
+        <div class="trust-author">Bauträger &amp; Investoren</div>
+        <div class="trust-role">Projektentwicklung · BIM · DGNB</div>
+      </div>
+
+      <!-- 3: Wohnungsbaugesellschaften -->
+      <div class="trust-card reveal reveal-delay-2">
+        <div class="trust-quote" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="32" height="32" style="display:block;">
+            <path d="M2 21h20M4 21V8l6-4 6 4v13M14 21V12l6-3v12" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8 12h.01M8 16h.01M12 12h.01M12 16h.01" stroke-linecap="round" stroke-width="2"/>
+          </svg>
+        </div>
+        <p class="trust-text" style="font-style:normal;">Kommunale und genossenschaftliche Wohnungsbaugesellschaften – beraten bei Bestandsstrategie, GEG-Konformität und Portfoliosanierung.</p>
+        <div class="trust-author">Wohnungsbaugesellschaften</div>
+        <div class="trust-role">Bestand · GEG · Portfolio</div>
+      </div>
+
+      <!-- 4: Hausverwaltungen -->
+      <div class="trust-card reveal">
+        <div class="trust-quote" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="32" height="32" style="display:block;">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke-linejoin="round"/>
+            <path d="M14 2v6h6M9 13h6M9 17h6M9 9h1" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <p class="trust-text" style="font-style:normal;">WEG- und Mietverwaltungen – unterstützt bei Schadensgutachten, Sanierungsplanung und der fachlichen Begleitung von Eigentümerversammlungen.</p>
+        <div class="trust-author">Hausverwaltungen</div>
+        <div class="trust-role">WEG · Gutachten · Beschlüsse</div>
+      </div>
+
+      <!-- 5: Architektur- & Planungsbüros -->
+      <div class="trust-card reveal reveal-delay-1">
+        <div class="trust-quote" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="32" height="32" style="display:block;">
+            <path d="M2 20h20M4 20V10l8-6 8 6v10" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M9 20v-6h6v6M12 4v2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <p class="trust-text" style="font-style:normal;">Architektur- und Planungsbüros – ergänzt durch Fachleistungen in BIM, Bauphysik, Energieeffizienz und Nachhaltigkeitszertifizierung.</p>
+        <div class="trust-author">Architektur- &amp; Planungsbüros</div>
+        <div class="trust-role">BIM · Bauphysik · Nachhaltigkeit</div>
+      </div>
+
+      <!-- 6: Sanierungsprojekte -->
+      <div class="trust-card reveal reveal-delay-2">
+        <div class="trust-quote" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="32" height="32" style="display:block;">
+            <path d="M14.7 6.3a4 4 0 1 1-5.7 5.7l-7 7v3h3l7-7a4 4 0 0 1 5.7-5.7l-3 3L14 11l1.3-1.3 3-3z" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <p class="trust-text" style="font-style:normal;">Sanierungs- und Modernisierungsvorhaben – von der Bestandsanalyse über den iSFP bis zur förderfähigen Umsetzung mit KfW- und BAFA-Begleitung.</p>
+        <div class="trust-author">Sanierungsprojekte</div>
+        <div class="trust-role">iSFP · KfW · BAFA</div>
+      </div>
+
+    </div>
+  </div>
+  <div class="container" style="margin-top: 2px;">
+    <div class="trust-numbers" role="list" aria-label="Kennzahlen">
+      <div class="trust-num-card reveal" role="listitem">
+        <div class="trust-num-val">100+</div>
+        <div class="trust-num-label">Begleitete Projekte</div>
+      </div>
+      <div class="trust-num-card reveal reveal-delay-1" role="listitem">
+        <div class="trust-num-val">15+</div>
+        <div class="trust-num-label">Jahre Erfahrung</div>
+      </div>
+      <div class="trust-num-card reveal reveal-delay-2" role="listitem">
+        <div class="trust-num-val">DEKRA</div>
+        <div class="trust-num-label">Zertifiziert</div>
+      </div>
+      <div class="trust-num-card reveal reveal-delay-3" role="listitem">
+        <div class="trust-num-val">6</div>
+        <div class="trust-num-label">Fachbereiche</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ZERTIFIKATE -->
+<section class="certs" aria-labelledby="certs-heading">
+  <div class="container">
+    <span class="section-eyebrow">Qualifikationen &amp; Zertifizierungen</span>
+    <h2 class="section-title reveal" id="certs-heading">Unsere <em>Kompetenz</em> – nachgewiesen</h2>
+    <div class="certs-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+      <div class="cert-card reveal">
+        <div style="height:70px; display:flex; align-items:center; justify-content:center; margin-bottom:1rem;">
+          <img src="images/img_12.png" alt="DGNB Auditor Logo" style="max-height:56px; max-width:160px; width:auto; object-fit:contain;"/>
+        </div>
+        <div class="cert-name">DGNB-Auditor</div>
+        <div class="cert-desc">Zertifizierter Nachhaltigkeitsexperte für Gebäude</div>
+      </div>
+      <div class="cert-card reveal reveal-delay-1">
+        <div style="height:70px; display:flex; align-items:center; justify-content:center; margin-bottom:1rem;">
+          <img src="images/img_13.png" alt="DGNB ESG-Manager Logo" style="max-height:56px; max-width:160px; width:auto; object-fit:contain;"/>
+        </div>
+        <div class="cert-name">DGNB ESG-Manager</div>
+        <div class="cert-desc">Nachhaltigkeitsberichterstattung & ESG-Strategie</div>
+      </div>
+      <div class="cert-card reveal reveal-delay-2">
+        <div style="height:70px; display:flex; align-items:center; justify-content:center; margin-bottom:1rem;">
+          <img src="images/img_14.png" alt="Energieeffizienz Experten Logo" style="max-height:56px; max-width:160px; width:auto; object-fit:contain;"/>
+        </div>
+        <div class="cert-name">Energieeffizienz-Experte</div>
+        <div class="cert-desc">Eintragung in der Bundesexpertenliste (BAFA/KfW)</div>
+      </div>
+      <div class="cert-card reveal reveal-delay-3">
+        <div style="height:70px; display:flex; align-items:center; justify-content:center; margin-bottom:1rem;">
+          <img src="images/img_6.png" alt="Ingenieurkammer-Bau NRW Logo" style="max-height:64px; max-width:160px; width:auto; object-fit:contain; filter:brightness(0) invert(1);"/>
+        </div>
+        <div class="cert-name">IK Bau NRW</div>
+        <div class="cert-desc">Mitglied der Ingenieurkammer-Bau Nordrhein-Westfalen</div>
+      </div>
+      <div class="cert-card reveal reveal-delay-1">
+        <span class="cert-icon">🔬</span>
+        <div class="cert-name">DEKRA-zertifizierter Sachverständiger</div>
+        <div class="cert-desc">Bauschadenbewertung & Immobilienbegutachtung</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNER -->
+<section class="partner-section" id="partner" aria-labelledby="partner-heading">
+  <div class="container">
+    <span class="section-eyebrow">Unsere Netzwerkpartner</span>
+    <h2 class="section-title reveal" id="partner-heading">Starke Partner – <em>gemeinsam für Sie</em></h2>
+    <p class="section-body reveal">Wir arbeiten mit ausgewählten Unternehmen zusammen, die unsere Werte teilen: Qualität, Verlässlichkeit und Fachkompetenz.</p>
+
+    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:1.5rem; margin-top:3rem;">
+
+      <a class="partner-card reveal" href="https://www.bimpixel.de" target="_blank" rel="noopener"
+         style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1rem; padding:2rem 1.5rem; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:12px; text-decoration:none; transition:all 0.3s;" onmouseover="this.style.background='rgba(255,255,255,0.08)'; this.style.borderColor='rgba(200,169,110,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.04)'; this.style.borderColor='rgba(255,255,255,0.08)'">
+        <div style="height:72px; display:flex; align-items:center; justify-content:center;">
+          <img src="images/img_7.png" alt="Bimpixel" style="max-height:64px; max-width:160px; object-fit:contain;"/>
+        </div>
+        <span class="partner-card-name" style="font-size:0.8rem; color:rgba(255,255,255,0.5); text-align:center;">BIM · Planung · Automation</span>
+      </a>
+
+      <a class="partner-card reveal reveal-delay-1" href="https://www.ppg-glawe.de" target="_blank" rel="noopener"
+         style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1rem; padding:2rem 1.5rem; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:12px; text-decoration:none; transition:all 0.3s;" onmouseover="this.style.background='rgba(255,255,255,0.08)'; this.style.borderColor='rgba(200,169,110,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.04)'; this.style.borderColor='rgba(255,255,255,0.08)'">
+        <div style="height:72px; display:flex; align-items:center; justify-content:center;">
+          <img src="images/img_8.png" alt="Projekt Partner Glawe" style="max-height:64px; max-width:160px; object-fit:contain; filter:brightness(0) invert(1);"/>
+        </div>
+        <span class="partner-card-name" style="font-size:0.8rem; color:rgba(255,255,255,0.5); text-align:center;">Projekt Partner Glawe</span>
+      </a>
+
+      <a class="partner-card reveal reveal-delay-2" href="https://www.bauconcept.info" target="_blank" rel="noopener"
+         style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1rem; padding:2rem 1.5rem; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:12px; text-decoration:none; transition:all 0.3s;" onmouseover="this.style.background='rgba(255,255,255,0.08)'; this.style.borderColor='rgba(200,169,110,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.04)'; this.style.borderColor='rgba(255,255,255,0.08)'">
+        <div style="height:72px; display:flex; align-items:center; justify-content:center;">
+          <img src="images/img_9.png" alt="BauConcept GmbH" style="max-height:64px; max-width:160px; object-fit:contain;"/>
+        </div>
+        <span class="partner-card-name" style="font-size:0.8rem; color:rgba(255,255,255,0.5); text-align:center;">BauConcept GmbH</span>
+      </a>
+
+      <a class="partner-card reveal reveal-delay-3" href="https://plavanti.de" target="_blank" rel="noopener"
+         style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1rem; padding:2rem 1.5rem; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:12px; text-decoration:none; transition:all 0.3s;" onmouseover="this.style.background='rgba(255,255,255,0.08)'; this.style.borderColor='rgba(200,169,110,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.04)'; this.style.borderColor='rgba(255,255,255,0.08)'">
+        <div style="height:72px; display:flex; align-items:center; justify-content:center;">
+          <img src="images/img_10.png" alt="Plavanti" style="max-height:48px; max-width:180px; object-fit:contain; filter:brightness(0) invert(1);"/>
+        </div>
+        <span class="partner-card-name" style="font-size:0.8rem; color:rgba(255,255,255,0.5); text-align:center;">Projektstrategie · Planungssteuerung</span>
+      </a>
+
+      <a class="partner-card reveal reveal-delay-1" href="#" target="_blank" rel="noopener"
+         style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1rem; padding:2rem 1.5rem; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:12px; text-decoration:none; transition:all 0.3s;" onmouseover="this.style.background='rgba(255,255,255,0.08)'; this.style.borderColor='rgba(200,169,110,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.04)'; this.style.borderColor='rgba(255,255,255,0.08)'">
+        <div style="height:72px; display:flex; align-items:center; justify-content:center;">
+          <img src="images/img_11.png" alt="M. B. Consulting" style="max-height:64px; max-width:100px; object-fit:contain;"/>
+        </div>
+        <span class="partner-card-name" style="font-size:0.8rem; color:rgba(255,255,255,0.5); text-align:center;">M. B. Consulting</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- KONTAKT -->
+<section class="contact" id="kontakt" aria-labelledby="kontakt-heading">
+  <div class="container">
+    <span class="section-eyebrow">Jetzt Kontakt aufnehmen</span>
+    <h2 class="section-title reveal" id="kontakt-heading">Ihr Projekt beginnt mit <em>einem Gespräch</em></h2>
+    <p class="section-body reveal">Schildern Sie uns Ihr Anliegen – wir melden uns innerhalb von 24 Stunden bei Ihnen.</p>
+    <div class="contact-grid">
+      <form aria-label="Kontaktformular PBL ConsultING" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="contact-form-group">
+            <label for="name">Ihr Name *</label>
+            <input type="text" id="name" name="name" placeholder="Max Mustermann" required autocomplete="name"/>
+          </div>
+          <div class="contact-form-group">
+            <label for="email">E-Mail-Adresse *</label>
+            <input type="email" id="email" name="email" placeholder="max@beispiel.de" required autocomplete="email"/>
+          </div>
+        </div>
+        <div class="contact-form-group">
+          <label for="telefon">Telefon</label>
+          <input type="tel" id="telefon" name="telefon" placeholder="+49 521 …" autocomplete="tel"/>
+        </div>
+        <div class="contact-form-group">
+          <label for="leistung">Gewünschte Leistung *</label>
+          <select id="leistung" name="leistung" required>
+            <option value="" disabled selected>Bitte wählen …</option>
+            <option>Hauskaufberatung</option>
+            <option>Bauschadenbewertung</option>
+            <option>Energieberatung iSFP</option>
+            <option>Planungsmanagement</option>
+            <option>BIM Architekturplanung</option>
+            <option>Gebäudezertifizierung</option>
+            <option>Allgemeine Anfrage</option>
+          </select>
+        </div>
+        <div class="contact-form-group">
+          <label for="nachricht">Ihre Nachricht *</label>
+          <textarea id="nachricht" name="nachricht" rows="4" placeholder="Beschreiben Sie Ihr Anliegen kurz …" required></textarea>
+        </div>
+        <div style="margin-top:0.5rem; margin-bottom:1.5rem;">
+          <label style="display:flex; align-items:flex-start; gap:0.75rem; cursor:pointer; font-size:0.75rem; color:rgba(255,255,255,0.35); line-height:1.6;">
+            <input type="checkbox" required style="margin-top:0.2rem; accent-color:var(--gold); flex-shrink:0;"/>
+            Ich habe die Datenschutzerklärung gelesen und stimme der Verarbeitung meiner Daten zu.
+          </label>
+        </div>
+        <button type="submit" class="btn-primary" style="width:100%; justify-content:center; font-size:0.85rem;">
+          Anfrage senden →
+        </button>
+        <div id="form-success" style="display:none; margin-top:1rem; padding:1rem; background:rgba(200,169,110,0.1); border-left:2px solid var(--gold); color:var(--gold); font-size:0.82rem;">
+          ✓ Vielen Dank! Wir melden uns schnellstmöglich bei Ihnen.
+        </div>
+      </form>
+
+      <div class="contact-info reveal">
+        <div class="contact-info-item">
+          <div class="contact-info-icon" aria-hidden="true">👤</div>
+          <div>
+            <div class="contact-info-title">Ansprechpartner</div>
+            <div class="contact-info-val">Niels Sonnenberg<br/><small style="font-size:0.75rem; color:rgba(255,255,255,0.45);">Bauingenieur · Sachverständiger · Energieeffizienzexperte</small></div>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-icon" aria-hidden="true">📞</div>
+          <div>
+            <div class="contact-info-title">Telefon</div>
+            <div class="contact-info-val"><a href="tel:+4915567179373" style="color:inherit; text-decoration:none;">+49 155 671 793 73</a></div>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-icon" aria-hidden="true">✉️</div>
+          <div>
+            <div class="contact-info-title">E-Mail</div>
+            <div class="contact-info-val"><a href="mailto:n.sonnenberg@pbl-consulting.de" style="color:inherit; text-decoration:none;">n.sonnenberg@pbl-consulting.de</a></div>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-icon" aria-hidden="true">🌐</div>
+          <div>
+            <div class="contact-info-title">Website</div>
+            <div class="contact-info-val"><a href="https://www.PBL-ConsultING.de" target="_blank" rel="noopener" style="color:inherit; text-decoration:none;">www.PBL-ConsultING.de</a></div>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-icon" aria-hidden="true">🕐</div>
+          <div>
+            <div class="contact-info-title">Erreichbarkeit</div>
+            <div class="contact-info-val">Mo – Fr, 08:00 – 18:00 Uhr</div>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-icon" aria-hidden="true">📍</div>
+          <div>
+            <div class="contact-info-title">Standort</div>
+            <div class="contact-info-val">Nordrhein-Westfalen<br/><small style="font-size:0.75rem; color:rgba(255,255,255,0.35);">Bundesweit tätig</small></div>
+          </div>
+        </div>
+        <div class="contact-map" aria-label="Standorthinweis">
+          <div class="map-dot" aria-hidden="true"></div>
+          <div class="map-text">PBL ConsultING ist in ganz NRW und bundesweit tätig. Wir kommen zu Ihnen vor Ort.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer role="contentinfo">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand-name">PBL ConsultING</div>
+      <div class="footer-brand-full">Planen · Bauen · Leben</div>
+      <p class="footer-desc">Ihr unabhängiges Ingenieurbüro für Hauskaufberatung, Bauschadenbewertung, BIM-Planung und Gebäudezertifizierung – fundiert, persönlich, präzise.</p>
+      <div style="display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap; margin-top:1.2rem;">
+        <img src="images/img_12.png" alt="DGNB Auditor" style="height:28px; width:auto; object-fit:contain; filter:brightness(0) invert(1); opacity:0.5;"/>
+        <img src="images/img_13.png" alt="DGNB ESG-Manager" style="height:28px; width:auto; object-fit:contain; filter:brightness(0) invert(1); opacity:0.5;"/>
+        <img src="images/img_14.png" alt="Energieeffizienz Experten" style="height:28px; width:auto; object-fit:contain; filter:brightness(0) invert(1); opacity:0.5;"/>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Leistungen</h4>
+      <ul>
+        <li><a href="#hauskauf">Hauskaufberatung</a></li>
+        <li><a href="#bauschaden">Bauschadenbewertung</a></li>
+        <li><a href="#energieberatung">Energieberatung iSFP</a></li>
+        <li><a href="#planung">Planungsmanagement</a></li>
+        <li><a href="#bim">BIM Architekturplanung</a></li>
+        <li><a href="#zertifizierung">Gebäudezertifizierung</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Büro</h4>
+      <ul>
+        <li><a href="#ueber-uns">Über uns</a></li>
+        <li><a href="#prozess">Arbeitsweise</a></li>
+        <li><a href="#referenzen">Referenzen</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Rechtliches</h4>
+      <ul>
+        <li><a href="#">Impressum</a></li>
+        <li><a href="#">Datenschutz</a></li>
+        <li><a href="#">AGB</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 PBL ConsultING – Planen · Bauen · Leben. Alle Rechte vorbehalten.</p>
+    <div class="footer-legal">
+      <a href="#">Impressum</a>
+      <a href="#">Datenschutzerklärung</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* =============================================================
+   PBL ConsultING – script.js
+   Stand: 16.04.2026
+   Enthält:
+   1. Mobile-Menü (open/close)
+   2. Nav-Farbwechsel beim Scrollen
+   3. Scroll-Reveal-Animationen
+   4. Cursor-Effekte (Glow + Dot)
+   5. Kontaktformular-Handling
+   6. Werkzeug-Tisch: Hotspot-Tooltip & Klick-Highlight
+   7. Smooth-Scroll mit Nav-Offset
+   ============================================================= */
+
+(function () {
+  'use strict';
+
+  /* -----------------------------------------------------------
+     1. MOBILE-MENÜ
+  ----------------------------------------------------------- */
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  window.openMobile = function () {
+    if (mobileMenu) {
+      mobileMenu.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+  };
+  window.closeMobile = function () {
+    if (mobileMenu) {
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  };
+
+  // Esc schließt das Menü
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') window.closeMobile();
+  });
+
+  /* -----------------------------------------------------------
+     2. NAV-FARBWECHSEL BEIM SCROLLEN
+     Nach 80px Scrollweg wird die Nav hell (weiß statt dunkel).
+  ----------------------------------------------------------- */
+  const navEl = document.querySelector('nav');
+  function updateNavOnScroll() {
+    if (!navEl) return;
+    if (window.scrollY > 80) {
+      navEl.classList.add('nav-light');
+    } else {
+      navEl.classList.remove('nav-light');
+    }
+  }
+  window.addEventListener('scroll', updateNavOnScroll, { passive: true });
+  updateNavOnScroll();
+
+  /* -----------------------------------------------------------
+     3. SCROLL-REVEAL
+     Elemente mit Klasse .reveal werden sichtbar, sobald sie
+     in den Viewport kommen. Verzögerungs-Klassen: .reveal-delay-1..4
+  ----------------------------------------------------------- */
+  const revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && revealEls.length) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+    );
+    revealEls.forEach((el) => io.observe(el));
+  } else {
+    // Fallback: einfach alles anzeigen
+    revealEls.forEach((el) => el.classList.add('visible'));
+  }
+
+  /* -----------------------------------------------------------
+     4. CURSOR-EFFEKTE (nur Desktop mit echter Maus)
+  ----------------------------------------------------------- */
+  const glow = document.getElementById('cursorGlow');
+  const dot = document.getElementById('cursorDot');
+  const hasFinePointer =
+    window.matchMedia && window.matchMedia('(pointer: fine)').matches;
+
+  if (glow && dot && hasFinePointer) {
+    let mouseX = 0, mouseY = 0;
+    let glowX = 0, glowY = 0;
+
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      dot.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+    });
+
+    // Weicher Follow-Effekt für den Glow
+    function animateGlow() {
+      glowX += (mouseX - glowX) * 0.15;
+      glowY += (mouseY - glowY) * 0.15;
+      glow.style.transform = `translate(${glowX}px, ${glowY}px)`;
+      requestAnimationFrame(animateGlow);
+    }
+    animateGlow();
+
+    // Hover-Effekt auf interaktiven Elementen
+    const interactive = document.querySelectorAll(
+      'a, button, .tool-hotspot, .leistung-card, input, select, textarea'
+    );
+    interactive.forEach((el) => {
+      el.addEventListener('mouseenter', () => {
+        glow.classList.add('cursor-glow--active');
+        dot.classList.add('cursor-dot--active');
+      });
+      el.addEventListener('mouseleave', () => {
+        glow.classList.remove('cursor-glow--active');
+        dot.classList.remove('cursor-dot--active');
+      });
+    });
+  } else if (glow && dot) {
+    // Auf Touch-Geräten komplett ausblenden
+    glow.style.display = 'none';
+    dot.style.display = 'none';
+  }
+
+  /* -----------------------------------------------------------
+     5. KONTAKTFORMULAR
+     Erwartet ein Element mit id="form-success" im Form.
+     HINWEIS: Die Anbindung an den Mail-Versand (IONOS / PHP-Mailer
+     oder Formspree) erfolgt später über den Hoster. Aktuell wird
+     die Erfolgsmeldung nach kurzer Verzögerung eingeblendet.
+  ----------------------------------------------------------- */
+  window.handleSubmit = function (event) {
+    event.preventDefault();
+    const form = event.target;
+    const successBox = document.getElementById('form-success');
+
+    // Simulierter Versand (später durch echten Endpoint ersetzen)
+    const submitBtn = form.querySelector('button[type="submit"]');
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Wird gesendet …';
+    }
+
+    setTimeout(() => {
+      if (successBox) successBox.style.display = 'block';
+      form.reset();
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = 'Anfrage senden →';
+      }
+      // Erfolg-Box nach 8 Sekunden ausblenden
+      setTimeout(() => {
+        if (successBox) successBox.style.display = 'none';
+      }, 8000);
+    }, 600);
+
+    return false;
+  };
+
+  /* -----------------------------------------------------------
+     6. WERKZEUG-TISCH: HOTSPOT-TOOLTIP & KLICK-HIGHLIGHT
+  ----------------------------------------------------------- */
+  const toolsWrap = document.getElementById('toolsWrap');
+  const tooltip = document.getElementById('toolsTooltip');
+  const tooltipName = document.getElementById('toolsTooltipName');
+  const tooltipDesc = document.getElementById('toolsTooltipDesc');
+  const hotspots = document.querySelectorAll('.tool-hotspot');
+  const toolPills = document.querySelectorAll('.tool-pill');
+
+  if (toolsWrap && tooltip && hotspots.length) {
+    hotspots.forEach((spot) => {
+      // Tooltip einblenden bei Hover / Focus
+      const showTooltip = () => {
+        tooltipName.textContent = spot.dataset.name || '';
+        tooltipDesc.textContent = spot.dataset.desc || '';
+        tooltip.classList.add('is-visible');
+
+        // Position: mittig über dem Hotspot
+        const wrapRect = toolsWrap.getBoundingClientRect();
+        const spotRect = spot.getBoundingClientRect();
+        const x = spotRect.left - wrapRect.left + spotRect.width / 2;
+        const y = spotRect.top - wrapRect.top;
+        tooltip.style.left = x + 'px';
+        tooltip.style.top = y + 'px';
+
+        // Zugehörige Pill visuell hervorheben
+        const key = spot.dataset.leistung;
+        toolPills.forEach((p) => {
+          p.classList.toggle('is-active', p.dataset.leistung === key);
+        });
+      };
+
+      const hideTooltip = () => {
+        tooltip.classList.remove('is-visible');
+        toolPills.forEach((p) => p.classList.remove('is-active'));
+      };
+
+      spot.addEventListener('mouseenter', showTooltip);
+      spot.addEventListener('focus', showTooltip);
+      spot.addEventListener('mouseleave', hideTooltip);
+      spot.addEventListener('blur', hideTooltip);
+
+      // Klick = sanftes Scrollen zur Leistung (wird unten global gehandhabt)
+    });
+  }
+
+  /* -----------------------------------------------------------
+     7. SMOOTH-SCROLL MIT NAV-OFFSET
+     Alle Anker-Links (#section) scrollen weich und berücksichtigen
+     die fixe Navigation (ca. 90px hoch).
+  ----------------------------------------------------------- */
+  const NAV_OFFSET = 90;
+  const anchorLinks = document.querySelectorAll('a[href^="#"]');
+
+  anchorLinks.forEach((link) => {
+    link.addEventListener('click', function (e) {
+      const targetId = this.getAttribute('href');
+      if (!targetId || targetId === '#') return;
+
+      const target = document.querySelector(targetId);
+      if (!target) return;
+
+      e.preventDefault();
+      const topPos =
+        target.getBoundingClientRect().top + window.scrollY - NAV_OFFSET;
+      window.scrollTo({ top: topPos, behavior: 'smooth' });
+
+      // Ziel-Leistungskarte kurz hervorheben (wenn vorhanden)
+      if (target.classList.contains('leistung-card')) {
+        target.classList.add('is-highlight');
+        setTimeout(() => target.classList.remove('is-highlight'), 1600);
+      }
+
+      // Mobile-Menü nach Klick schließen
+      window.closeMobile();
+    });
+  });
+
+})();
+
+</script>
+
+<div class="cursor-glow" id="cursorGlow"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+
+</body>
+</html>
