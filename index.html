@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PBL ConsultING – Hauskaufberatung, Bauschadenbewertung, BIM & Gebäudezertifizierung</title>
+  <meta name="description" content="PBL ConsultING – Ihr unabhängiges Ingenieurbüro für Hauskaufberatung, Bauschadenbewertung, BIM-Planung und Gebäudezertifizierung in NRW und bundesweit.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- CURSOR -->
+  <div id="cursorGlow"></div>
+  <div id="cursorDot"></div>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="#" class="nav-logo">
+      <img src="Bilder/PBL auf schwarz.png" alt="PBL ConsultING Logo" id="navLogo">
+    </a>
+    <div class="nav-links">
+      <a href="#leistungen">Leistungen</a>
+      <a href="#ueber-uns">Über uns</a>
+      <a href="#prozess">Arbeitsweise</a>
+      <a href="#kontakt" class="nav-cta">Beratung anfragen</a>
+    </div>
+    <button class="nav-burger" onclick="toggleMenu()" aria-label="Menü">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div id="mobileMenu">
+    <button class="close-btn" onclick="toggleMenu()">✕</button>
+    <a href="#leistungen" onclick="toggleMenu()">Leistungen</a>
+    <a href="#ueber-uns" onclick="toggleMenu()">Über uns</a>
+    <a href="#prozess" onclick="toggleMenu()">Arbeitsweise</a>
+    <a href="#kontakt" onclick="toggleMenu()">Beratung anfragen</a>
+  </div>
+
+  <!-- HERO -->
+  <section id="hero">
+    <canvas id="heroCanvas"></canvas>
+    <div class="hero-content reveal">
+      <span class="hero-badge">DIBt · DGNB · VDI &nbsp;|&nbsp; Zertifizierte Expertise</span>
+      <h1>Präzision,<br>die Ihr Projekt<br><em>trägt.</em></h1>
+      <p>PBL Consulting steht für fundierte Immobilienberatung, technische Analyse und zukunftsfähige Planung – unabhängig, kompetent und persönlich.</p>
+      <div class="hero-btns">
+        <a href="#kontakt" class="btn-primary">Erstgespräch vereinbaren →</a>
+        <a href="#leistungen" class="btn-outline">Leistungen entdecken</a>
+      </div>
+    </div>
+    <div class="hero-stats reveal">
+      <div class="stat"><span class="stat-num">15+</span><span class="stat-label">Jahre Erfahrung</span></div>
+      <div class="stat"><span class="stat-num">180+</span><span class="stat-label">Projekte realisiert</span></div>
+      <div class="stat"><span class="stat-num">98%</span><span class="stat-label">Kundenzufriedenheit</span></div>
+    </div>
+  </section>
+
+  <!-- PARTIKEL-TEXT -->
+  <section id="partikel-section">
+    <canvas id="partikelCanvas"></canvas>
+  </section>
+
+  <!-- ÜBER UNS -->
+  <section id="ueber-uns">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Über PBL Consulting</span>
+        <h2>Unabhängig. Präzise. Verlässlich.</h2>
+        <p>PBL Consulting – Planen, Bauen, Leben – ist Ihr unabhängiges Ingenieurbüro für alle Fragen rund um Immobilien, Baukonstruktion und technische Planung. Mit über 15 Jahren Erfahrung begleiten wir private Käufer, Investoren, Architekten und Unternehmen in jeder Phase ihres Projekts.</p>
+      </div>
+      <div class="about-grid">
+        <div class="about-card reveal"><div class="about-icon">●</div><h3>Wir hören zu!</h3><p>Ihr Anliegen steht im Mittelpunkt. Wir nehmen uns Zeit, Ihre Situation zu verstehen – und entwickeln daraus eine passgenaue Lösung.</p></div>
+        <div class="about-card reveal"><div class="about-icon">◆</div><h3>Expertenwissen</h3><p>Wir verfolgen einen interdisziplinären Beratungsansatz mit Expertise aus Energieberatung, Bauphysik, Tragwerksplanung und technischer Gebäudeausstattung.</p></div>
+        <div class="about-card reveal"><div class="about-icon">▲</div><h3>Digitale Projektbegleitung</h3><p>Als Ingenieurbüro arbeiten wir nachhaltig und effizient. Wir lieben digitale Prozesse und tragen somit auch einen wesentlichen Teil zur Umwelt bei.</p></div>
+        <div class="about-card reveal"><div class="about-icon">■</div><h3>Langjährige Erfahrung</h3><p>Über 15 Jahre aktive Tätigkeit auf nationalen und internationalen Baustellen – diese Praxistiefe macht den Unterschied bei komplexen Projekten.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEISTUNGEN -->
+  <section id="leistungen">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Unsere Kernleistungen</span>
+        <h2>Was wir für Sie leisten</h2>
+        <p>Sechs Fachbereiche. Ein Ziel: Ihr Vorhaben auf solidem Fundament.</p>
+      </div>
+      <div class="leistungen-grid">
+        <div class="leistung-card reveal" id="card-planungsmanagement">
+          <div class="card-icon">📐</div>
+          <h3>Planungsmanagement</h3>
+          <ul>
+            <li>Erstellung von Bauanträgen und Regalbauanträgen</li>
+            <li>Projektentwicklung und Masterplanung</li>
+            <li>Beratung in allen Leistungsphasen nach HOAI</li>
+            <li>Terminplanung, Kostencontrolling und Qualitätssicherung</li>
+          </ul>
+          <a href="#kontakt" class="card-link">Erstberatung →</a>
+        </div>
+        <div class="leistung-card reveal" id="card-gebaeudezertefizierung">
+          <div class="card-icon">🏅</div>
+          <h3>Gebäudezertifizierung</h3>
+          <ul>
+            <li>Erstellung von Nachhaltigkeitsstrategien und Prechecks</li>
+            <li>Beratung und Zertifizierung bei Neubauten und Sanierungen</li>
+            <li>Zertifizierung nach DGNB + QNG</li>
+            <li>Energieausweis und GEG-Nachweis</li>
+          </ul>
+          <a href="#kontakt" class="card-link">Erstberatung →</a>
+        </div>
+        <div class="leistung-card reveal" id="card-energieberatung">
+          <div class="card-icon">⚡</div>
+          <h3>Energieberatung iSFP</h3>
+          <ul>
+            <li>Bestandsanalyse & Energieberatung iSFP</li>
+            <li>Baubegleitung bei der energetischen Sanierung</li>
+            <li>Beratung bei Neubauvorhaben und Immobilienkauf</li>
+            <li>Fördermittelberatung KfW und BAFA</li>
+          </ul>
+          <a href="#kontakt" class="card-link">Erstberatung →</a>
+        </div>
+        <div class="leistung-card reveal" id="card-hauskaufberatung">
+          <div class="card-icon">🏠</div>
+          <h3>Hauskaufberatung</h3>
+          <ul>
+            <li>Begutachtung vor Ort durch erfahrene Sachverständige</li>
+            <li>Bewertung von Bausubstanz, Dach, Keller und Technik</li>
+            <li>Schriftliches Gutachten mit Kostenprognose</li>
+            <li>Unabhängige Kaufpreisbewertung</li>
+          </ul>
+          <a href="#kontakt" class="card-link">Erstberatung →</a>
+        </div>
+        <div class="leistung-card reveal" id="card-bauschadenbewertung">
+          <div class="card-icon">🔬</div>
+          <h3>Bauschadenbewertung</h3>
+          <ul>
+            <li>Analyse von Feuchte-, Riss- und Schimmelschäden</li>
+            <li>Dokumentation mit Fotobericht und Messwerten</li>
+            <li>Schadensursachen und Haftungsfragen klären</li>
+            <li>Schriftliches Gutachten für Gericht oder Versicherung</li>
+          </ul>
+          <a href="#kontakt" class="card-link">Erstberatung →</a>
+        </div>
+        <div class="leistung-card reveal" id="card-bim">
+          <div class="card-icon">💻</div>
+          <h3>BIM Planung</h3>
+          <ul>
+            <li>3D-Modellierung und digitale Bauwerksdokumentation</li>
+            <li>Kollisionsprüfung und Fachplanerkoordination</li>
+            <li>Visualisierung und Variantenentwicklung</li>
+            <li>BIM-Management nach VDI 2552</li>
+          </ul>
+          <a href="#kontakt" class="card-link">Erstberatung →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROZESS -->
+  <section id="prozess">
+    <canvas id="shaderCanvas"></canvas>
+    <div class="container" style="position:relative;z-index:1;">
+      <div class="section-header reveal">
+        <span class="section-tag">Unsere Arbeitsweise</span>
+        <h2>Strukturiert. Transparent. Ergebnisorientiert.</h2>
+        <p>Jedes Projekt folgt einem klaren Ablauf – damit Sie immer wissen, wo Ihr Vorhaben steht.</p>
+      </div>
+      <div class="prozess-steps">
+        <div class="prozess-step reveal"><div class="step-num">1</div><h3>Erstgespräch</h3><p>Kostenfreie Analyse Ihrer Ausgangssituation und Zieldefinition</p></div>
+        <div class="prozess-step reveal"><div class="step-num">2</div><h3>Bestandsaufnahme</h3><p>Vor-Ort-Begehung, Messtechnik und Dokumentation</p></div>
+        <div class="prozess-step reveal"><div class="step-num">3</div><h3>Analyse & Bewertung</h3><p>Fachliche Auswertung nach aktuellen Normen und Standards</p></div>
+        <div class="prozess-step reveal"><div class="step-num">4</div><h3>Gutachten / Planung</h3><p>Klares, gerichtsfestes Dokument oder digitales Planungsmodell</p></div>
+        <div class="prozess-step reveal"><div class="step-num">5</div><h3>Begleitung</h3><p>Auf Wunsch Baubegleitung, Verhandlungsunterstützung und Nachbetreuung</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REFERENZEN -->
+  <section id="referenzen">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Vertrauen & Referenzen</span>
+        <h2>Was unsere Kunden sagen</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal">
+          <p class="quote">„Vor dem Kauf unseres Hauses ließ ich eine Begutachtung durch PBL Consulting durchführen – eine Entscheidung, die ich nie bereut habe. Der Bericht war klar, detailliert und hat uns vor erheblichen Überraschungskosten bewahrt."</p>
+          <div class="testimonial-author"><strong>Markus & Julia H.</strong><span>Hauskäufer, Bielefeld</span></div>
+        </div>
+        <div class="testimonial-card reveal">
+          <p class="quote">„Herr Sonnenberg hat unser Neubauprojekt von Anfang an digital begleitet. Die Kollisionsprüfung im Modell hat uns mehrere teure Umplanungen auf der Baustelle erspart – das war echte Ingenieursleistung."</p>
+          <div class="testimonial-author"><strong>Architektur Büro Meier</strong><span>Architekturbüro, Paderborn</span></div>
+        </div>
+        <div class="testimonial-card reveal">
+          <p class="quote">„Wir hatten hartnäckige Feuchtigkeitsschäden im Keller, deren Ursache jahrelang unklar blieb. PBL ConsultING hat binnen eines Tages die Schadensquelle lokalisiert, dokumentiert und einen realistischen Sanierungsplan erstellt."</p>
+          <div class="testimonial-author"><strong>Thomas K.</strong><span>Immobilieneigentümer, Minden</span></div>
+        </div>
+      </div>
+      <div class="trust-stats reveal">
+        <div class="trust-stat"><span>180+</span>Projekte</div>
+        <div class="trust-stat"><span>15+</span>Jahre Erfahrung</div>
+        <div class="trust-stat"><span>98%</span>Kundenzufriedenheit</div>
+        <div class="trust-stat"><span>6</span>Fachbereiche</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNER -->
+  <section id="partner">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Netzwerkpartner</span>
+        <h2>Starke Partner – gemeinsam für Sie</h2>
+      </div>
+      <div class="partner-grid reveal">
+        <div class="partner-card">BIM · Planung · Automation<br><strong>Bimpixel</strong></div>
+        <div class="partner-card">Projekt Partner<br><strong>Glawe</strong></div>
+        <div class="partner-card"><strong>BauConcept GmbH</strong></div>
+        <div class="partner-card">Projektstrategie<br><strong>Plavanti</strong></div>
+        <div class="partner-card"><strong>M. B. Consulting</strong></div>
+        <div class="partner-card">Bauanalytik<br><strong>BauDoc Institut</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KONTAKT -->
+  <section id="kontakt">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Jetzt Kontakt aufnehmen</span>
+        <h2>Ihr Projekt beginnt mit einem Gespräch</h2>
+        <p>Schildern Sie uns Ihr Anliegen – wir melden uns innerhalb von 24 Stunden bei Ihnen.</p>
+      </div>
+      <div class="kontakt-grid">
+        <form class="kontakt-form reveal" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Ihr Name *</label>
+              <input type="text" required placeholder="Max Mustermann">
+            </div>
+            <div class="form-group">
+              <label>E-Mail-Adresse *</label>
+              <input type="email" required placeholder="max@mustermann.de">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Telefon</label>
+              <input type="tel" placeholder="+49 ...">
+            </div>
+            <div class="form-group">
+              <label>Gewünschte Leistung *</label>
+              <select required>
+                <option value="">Bitte wählen …</option>
+                <option>Hauskaufberatung</option>
+                <option>Bauschadenbewertung</option>
+                <option>BIM Planung</option>
+                <option>Gebäudezertifizierung</option>
+                <option>Energieberatung iSFP</option>
+                <option>Planungsmanagement</option>
+                <option>Allgemeine Anfrage</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Ihre Nachricht *</label>
+            <textarea rows="5" required placeholder="Beschreiben Sie Ihr Anliegen …"></textarea>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" id="dsgvo" required>
+            <label for="dsgvo">Ich habe die Datenschutzerklärung gelesen und stimme der Verarbeitung meiner Daten zu.</label>
+          </div>
+          <button type="submit" class="btn-primary">Anfrage senden →</button>
+          <div id="form-success" style="display:none;" class="form-success">✓ Vielen Dank! Wir melden uns schnellstmöglich bei Ihnen.</div>
+        </form>
+        <div class="kontakt-info reveal">
+          <div class="info-card">
+            <h3>Ansprechpartner</h3>
+            <p><strong>Niels Sonnenberg</strong><br>Bauingenieur · Sachverständiger · Energieeffizienzexperte</p>
+            <div class="info-items">
+              <div class="info-item"><span>📞</span><a href="tel:+4915567179373">+49 155 671 793 73</a></div>
+              <div class="info-item"><span>✉️</span><a href="mailto:n.sonnenberg@pbl-consulting.de">n.sonnenberg@pbl-consulting.de</a></div>
+              <div class="info-item"><span>🌐</span><a href="https://www.PBL-ConsultING.de">www.PBL-ConsultING.de</a></div>
+              <div class="info-item"><span>🕐</span><span>Mo – Fr, 08:00 – 18:00 Uhr</span></div>
+              <div class="info-item"><span>📍</span><span>Nordrhein-Westfalen · Bundesweit tätig</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-logo-text">PBL ConsultING</p>
+          <p class="footer-tagline">Planen · Bauen · Leben</p>
+          <p>Ihr unabhängiges Ingenieurbüro für Hauskaufberatung, Bauschadenbewertung, BIM-Planung und Gebäudezertifizierung – fundiert, persönlich, präzise.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Leistungen</h4>
+          <a href="#hauskaufberatung">Hauskaufberatung</a>
+          <a href="#bauschadenbewertung">Bauschadenbewertung</a>
+          <a href="#bim">BIM Planung</a>
+          <a href="#gebaeudezertefizierung">Gebäudezertifizierung</a>
+          <a href="#energieberatung">Energieberatung iSFP</a>
+        </div>
+        <div class="footer-col">
+          <h4>Büro</h4>
+          <a href="#ueber-uns">Über uns</a>
+          <a href="#prozess">Arbeitsweise</a>
+          <a href="#referenzen">Referenzen</a>
+          <a href="#kontakt">Kontakt</a>
+        </div>
+        <div class="footer-col">
+          <h4>Rechtliches</h4>
+          <a href="#">Impressum</a>
+          <a href="#">Datenschutz</a>
+          <a href="#">AGB</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 PBL ConsultING – Planen · Bauen · Leben. Alle Rechte vorbehalten.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="animations.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
