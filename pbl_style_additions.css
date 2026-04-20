@@ -1,0 +1,65 @@
+/* =============================================================
+   PBL ConsultING – Style Additions
+   Einbinden: <link rel="stylesheet" href="pbl_style_additions.css">
+   im <head> der HTML-Datei
+   ============================================================= */
+
+/* Partikel-Text Sektion */
+#leistungen-animation {
+  background: #0d1117;
+  height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+#partikel-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Hero: Beams-Canvas korrekt positionieren */
+#hero {
+  position: relative;
+  overflow: hidden;
+}
+
+#hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+#hero-beams-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  filter: blur(40px);
+}
+
+/* Prozess-Sektion: Shader-Canvas */
+#prozess {
+  position: relative;
+  overflow: hidden;
+}
+
+#prozess > *:not(#prozess-shader-canvas) {
+  position: relative;
+  z-index: 1;
+}
+
+#prozess-shader-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  opacity: 0.5;
+  pointer-events: none;
+}
